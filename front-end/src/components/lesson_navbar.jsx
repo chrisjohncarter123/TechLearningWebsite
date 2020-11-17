@@ -5,6 +5,20 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+import LessonNavItem from './lesson_navitem';
+import styled from "styled-components";
+/* This defines the actual bar going down the screen */
+const StyledSideNav = styled.div`
+  position: fixed;     /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
+  height: 100%;
+  width: 75px;     /* Set the width of the sidebar */
+  z-index: 1;      /* Stay on top of everything */
+  top: 3.4em;      /* Stay at the top */
+  background-color: #222; /* Black */
+  overflow-x: hidden;     /* Disable horizontal scroll */
+  padding-top: 10px;
+`;
+
 
 class LessonNavBar extends Component {
 
@@ -19,10 +33,11 @@ class LessonNavBar extends Component {
           css: 'fa fa-fw fa-home',
           key: 1 /* Key is required, else console throws error. Does this please you Mr. Browser?! */
         },
+
         {
-          path: '/about',
-          name: 'About',
-          css: 'fa fa-fw fa-clock',
+          path: '/NoMatch',
+          name: 'NoMatch',
+          css: 'fas fa-hashtag',
           key: 2
         },
         {
@@ -31,6 +46,12 @@ class LessonNavBar extends Component {
           css: 'fas fa-hashtag',
           key: 3
         },
+        {
+          path: '/',
+          name: 'Home',
+          css: 'fas fa-hashtag',
+          key: 4
+        }
       ]
     }  
   }
@@ -48,7 +69,7 @@ class LessonNavBar extends Component {
           items.map((item) => {
             /* Return however many NavItems in array to be rendered */
             return (
-              <NavItem path={item.path} name={item.name} css={item.css} onItemClick={this.onItemClick} /* Simply passed an entire function to onClick prop */ active={item.path === activePath} key={item.key}/>
+              <LessonNavItem path={item.path} name={item.name} css={item.css} onItemClick={this.onItemClick} /* Simply passed an entire function to onClick prop */ active={item.path === activePath} key={item.key}/>
             )
           })
         }

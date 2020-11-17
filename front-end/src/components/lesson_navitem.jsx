@@ -4,6 +4,7 @@ import './app.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import styled from "styled-components";
 
 const StyledNavItem = styled.div`
   height: 70px;
@@ -36,7 +37,7 @@ class LessonNavItem extends Component {
     return (
         <StyledNavItem active={active}>
             <Link to={this.props.path} className={this.props.css} onClick={this.handleClick}>
-            <NavIcon></NavIcon>
+           
             </Link>
         </StyledNavItem>
     );
