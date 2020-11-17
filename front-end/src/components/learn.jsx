@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './app.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
+import LessonNavBar from './lesson_navbar'
 
 
 class Learn extends Component {
@@ -12,6 +13,9 @@ class Learn extends Component {
     return (
       <div>
         <h1>Learn</h1>
+        <LessonNavBar />
+        
+
       </div>
     );
   }
